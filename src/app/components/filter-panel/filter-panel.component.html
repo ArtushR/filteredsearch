@@ -1,0 +1,31 @@
+<div class="filter-panel">
+  <div class="filter-column filter-column-small">
+    <div style="margin-bottom: 5px">История</div>
+    <span class="search-history" *ngFor="let item of previousSearches">{{ item }}<br></span>
+  </div>
+  <div class="filter-column filter-column-large">
+    <form>
+      <div class="search-bar">
+        <label class="search-label" for="search">Автор</label>
+        <input placeholder="Имя или должность" style="width: 92%" type="text" id="search" name="search">
+        <button mat-mini-fab	class="disabled-button">Я</button>
+      </div>
+      <div class="option-section">
+        <div class="checkbox-options">
+          <label><input type="checkbox"> Я участник</label>
+          <label><input type="checkbox"> Строгий поиск</label>
+          <label><input type="checkbox"> В заголовках</label>
+        </div>
+      </div>
+
+      <div class="option-section">
+        <span class="option-title">Только</span>
+        <div class="checkbox-options">
+          <label><input type="checkbox">Теги</label>
+          <label><input type="checkbox">Просьбы</label>
+          <label><input type="checkbox">Контакты</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

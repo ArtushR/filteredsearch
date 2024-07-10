@@ -1,0 +1,40 @@
+<header class="header">
+  <button *ngIf="isNavHidden" mat-icon-button class="menu-button" (click)="toggleNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="logo">
+    <img src="https://tile.expert/img/topMenu/hdLogo.svg?2" style="alignment-baseline:center; margin-top:10px; width: 150px; height: 56px" alt="logo">
+  </div>
+  <nav class="nav-menu" [ngClass]="{'hidden': isNavHidden}">
+    <button mat-button class="nav-item"><mat-icon><span class="material-symbols-outlined">link</span></mat-icon> Ссылки</button>
+    <button mat-button class="nav-item"><mat-icon><span class="material-symbols-outlined">contacts_product</span></mat-icon> Контакты</button>
+    <button mat-button class="nav-item"><mat-icon><span class="material-symbols-outlined">tag</span></mat-icon> Теги</button>
+    <button mat-button class="nav-item"><mat-icon><span class="material-symbols-outlined">star</span></mat-icon> Избранное</button>
+    <button mat-button class="nav-item"><mat-icon><span class="material-symbols-outlined">history</span></mat-icon> Посещения</button>
+  </nav>
+  <div class="search-container">
+    <button mat-icon-button (click)="expandSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <input matInput [placeholder]="'Поисковый запрос'" (focus)="onFocus()" (blur)="onBlur()" [ngClass]="{ 'expanded': (isSearchExpanded) }">
+    <app-filter-panel *ngIf="isFilterPanelVisible"></app-filter-panel>
+    <button *ngIf="isNavHidden" mat-icon-button style="position: relative; margin-right:-10px"><mat-icon><span class="material-symbols-outlined">history</span></mat-icon></button>
+    <button mat-icon-button style="position: relative"><mat-icon><span class="material-symbols-outlined">add_circle</span></mat-icon></button>
+  </div>
+  <div class="profile-notifications">
+    <button mat-icon-button style="width: 15px">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <button *ngIf="!isNavHidden" mat-icon-button>
+      <img src="https://www.pngfind.com/pngs/m/317-3177131_636682202684372240-user-profile-photo-round-hd-png-download.png" alt="Profile Picture" class="profile-pic">
+    </button>
+  </div>
+</header>
+<!-- Mobile-Screen Search Block -->
+<div class="full-screen-search" *ngIf="isSearchExpanded && isMobileView">
+  <button mat-icon-button (click)="collapseSearch()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <input matInput [placeholder]="'Поисковый запрос'" (focus)="onFocus()" (blur)="onBlur()">
+  <app-filter-panel *ngIf="isSearchExpanded"></app-filter-panel>
+</div>

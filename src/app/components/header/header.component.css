@@ -1,0 +1,147 @@
+.header {
+  display: flex;
+  position: relative;
+  font-family: "Arial";
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  background-color: #1074cc;
+  color: aliceblue;
+  padding: 0 16px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  flex: 0 0 150px;
+}
+
+.nav-menu {
+  display: flex;
+  padding: 0 40px;
+  gap: 30px;
+  z-index: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  width: 92px;
+}
+
+.search-container button:first-child {
+  position: absolute;
+  display: contents;
+  padding: 0 5px;
+}
+
+.search-container input {
+  width: 0;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0 8px;
+  opacity: 0;
+  transition: width 0.5s ease, opacity 0.8s ease, visibility 0.5s ease;
+  position: absolute;
+  right: 60px;
+  visibility: hidden;
+}
+
+.search-container input.expanded {
+  width: 730px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.profile-notifications {
+  position: absolute;
+  right: 15px;
+}
+
+.profile-notifications button {
+  margin-right: 10px;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* Media Queries */
+@media (max-width: 1080px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .search-container{
+    width: -webkit-fill-available;
+    justify-content: end;
+    padding-right: 20px;
+  }
+
+  app-filter-panel {
+    margin-right: -7px;
+  }
+
+}
+@media (max-width: 850px) {
+
+  body.full-screen-search-active {
+    overflow: hidden;
+  }
+
+  .full-screen-search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    gap:15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .full-screen-search button {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    border-radius: 6px !important;
+    background: whitesmoke;
+    color: #a9a7a7 !important;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+
+  }
+
+  .full-screen-search input {
+    width: calc(90% - 70px);
+    max-width: 600px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    margin-left: 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 11px;
+    z-index: 1001;
+  }
+}
